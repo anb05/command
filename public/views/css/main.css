@@ -1,0 +1,167 @@
+html {
+    background:                         linear-gradient(to bottom, lightblue, lightgoldenrodyellow) no-repeat fixed;
+    color:                              navy;
+    font-family:                        Arial, Geneva, Helvetica, sans-serif;
+    font-size:                          14pt;
+    line-height:                        1.5;
+    height:                             100%;
+}
+
+body {
+    min-width:                          875px;
+}
+
+header {
+    background:                         rgba(255,200,100, 0.5);
+    height:                             100px;
+    border:                             2px solid brown;
+    box-shadow:                         inset 0px 0px 5px brown;
+    border-bottom-left-radius:          15px;
+    border-bottom-right-radius:         15px;
+}
+
+footer {
+    background:                         rgba(255,200,100, 0.5);
+    height:                             100px;
+    border:                             2px solid brown;
+    box-shadow:                         inset 0px 0px 5px brown;
+    border-top-left-radius:             15px;
+    border-top-right-radius:            15px;
+    clear:                              both;
+}
+
+main {
+    width:                              30%;
+    min-width:                          275px;
+    height:                             100%;
+    border:                             solid 1px white;
+    border-radius:                      15px;
+    margin:                             5px;
+    padding:                            5px;
+    box-shadow:                         0 0 5px 1px white;
+    float:                              left;
+}
+
+aside {
+    width:                              calc(70% - 20px);
+    height:                             100%;
+    border:                             solid 1px white;
+    border-radius:                      15px;
+    margin:                             5px 5px 5px auto;
+    padding:                            5px;
+    box-shadow:                         0 0 5px 1px white;
+    text-align:                         center;
+}
+
+h1, h2, h3 {
+    text-align:                         center;
+    text-shadow:                        2px 2px 5px yellow;
+}
+
+h3 {
+    color:                              black;
+    font-size:                          10pt;
+    font-weight:                        bolder;
+}
+
+.tableContainer {
+    display:                            table;
+    width:                              100%;
+}
+
+.rowContainer {
+    display:                            table-row;
+    text-align:                         center;
+    width:                              100%;
+}
+
+.columnLeft, .columnRight {
+    display:                            table-cell;
+    width:                              50%;
+    border:                             solid 1px white;
+}
+
+.columnLeft {
+    border-top-left-radius:             7px;
+    border-bottom-left-radius:          7px;
+}
+
+.columnRight {
+    border-top-right-radius:            7px;
+    border-bottom-right-radius:         7px;
+}
+
+.button {
+    display:                            inline-block;
+    width:                              30%;
+    height:                             30px;
+    border:                             solid 1px grey;
+    margin:                             5px 4%;
+    padding:                            5px;
+    border-radius:                      10px;
+    box-shadow:                         inset 0 0 8px 2px darkgreen;
+    text-decoration:                    none;
+    transition-duration:                0.5s;
+    transition-property:                box-shadow, font-size;
+}
+
+.button:hover {
+    display:                            inline-block;
+    width:                              30%;
+    height:                             30px;
+    border:                             solid 1px grey;
+    margin:                             5px 4%;
+    padding:                            5px;
+    border-radius:                      10px;
+    box-shadow:                         inset 0 0 8px 2px darkblue;
+    text-decoration:                    none;
+}
+
+.button:focus {
+    display:                            inline-block;
+    width:                              30%;
+    height:                             30px;
+    border:                             solid 1px grey;
+    margin:                             5px 4%;
+    padding:                            5px;
+    border-radius:                      10px;
+    box-shadow:                         inset 0 0 8px 2px darkgrey;
+    text-decoration:                    none;
+}
+
+.indicatorOn, .indicatorOff {
+    display:                            inline-block;
+    border:                             solid 1px orangered;
+    border-radius:                      10px;
+    width:                              20px;
+    height:                             20px;
+    margin:                             10px 0;
+    background-color:                   orangered;
+}
+
+.indicatorOff {
+   background-color:                    darkgray;
+}
+
+.legend {
+    width:                              80%;
+    height:                             30px;
+    border:                             solid 1px grey;
+    margin:                             5px auto 17px auto;
+    padding:                            5px;
+}
+
+.undo {
+    font-size:                          12px;
+    font-weight:                        bolder;
+    text-transform:                     uppercase;
+    margin:                             0 0 -5px 0;
+}
+
+#scheme {
+    width:                              calc(100% - 10px);
+    height:                             calc(100% - 10px);
+    border:                             solid 1px white;
+    border-radius:                      10px;
+    margin:                             5px auto;
+}

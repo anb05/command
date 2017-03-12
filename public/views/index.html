@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru" title="Learn Pattern Command">
+    <head>
+        <meta charset="UTF-8">
+        <title>Learn pattern Command</title>
+        <meta name="author" content="alexandr05@list.ru">
+        <meta name="keywords" content="pattern, Command, learn, Freeman">
+        <meta name="description" content="Learn Patterns">
+        <meta name="robots" content="index, follow">
+        <link href="views/favicon.ico" rel="icon" type="image/ico">
+        <link href="views/css/reset.css" type="text/css" rel="stylesheet">
+        <link href="views/css/main.css" type="text/css" rel="stylesheet">
+    </head>
+
+    <body>
+    <header>
+        <h1>Начинаю изучать паттерн  "Команда"</h1>
+    </header>
+
+    <main>
+        <h2>Многофункциональный пульт управления</h2>
+        <div class="tableContainer">
+            <div class="rowContainer">
+                <div class="columnLeft">
+                    <h3>Имена устройств</h3>
+                    <p class="legend"></p>
+                    <p class="legend"></p>
+                    <p class="legend"></p>
+                    <p class="legend"></p>
+                    <p class="legend"></p>
+                    <p class="legend"></p>
+                    <p class="legend"></p>
+                </div>
+
+                <div class="columnRight">
+                    <h3>
+                        <span>&ldquo;On&rdquo;</span>
+                        &copy;
+                        <span>&ldquo;Off&rdquo;</span>
+                    </h3>
+                    <?php include_once __DIR__ . "/toolsButtom.php"; ?> 
+                    <p class="undo">undo</p>
+
+                    <p><a class="button" href="/?line=undo"></a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+        <h2>UML диаграмма паттерна &ldquo;Command&rdquo;</h2>
+        <!--
+        <canvas id="scheme"></canvas>
+        -->
+        <img alt="UML Diargam" src="views/images/uml_diagram.png" id="scheme">
+    </aside>
+
+    <footer>
+        <p>
+        </p>
+    </footer>
+    </body>
+</html>
