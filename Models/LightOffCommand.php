@@ -10,6 +10,7 @@ use Command\Contracts\Command;
 class LightOffCommand implements Command
 {
     private $light;
+    private $level;
 
     public function __construct(Light $light)
     {
@@ -18,10 +19,12 @@ class LightOffCommand implements Command
 
     public function execute(): void
     {
+        $this->level = $this->light->getLevel();
         $this->light->off();
     }
 
     public function undo(): void
     {
+        $this->light->dim($this->level);
     }
 }

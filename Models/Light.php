@@ -7,25 +7,31 @@ namespace Command\Models;
 
 class Light
 {
-    private $location;
+    private $location = "";
+
+    private $fullName = "";
 
     private $level;
 
     public function __construct(string $location)
     {
         $this->location = $location;
+        $this->fullName = trim("Light " . $this->location);
+        $this->level = 0;
     }
 
     public function on() : void
     {
         $this->level = 100;
-        $_SESSION['light'] = 1;
+        $_SESSION['power'][$this->fullName] = 1;
+        $_SESSION['message'][$this->fullName] = "Light in " . $this->location . " is on";
     }
 
     public function off() : void
     {
         $this->level = 0;
-        $_SESSION['light'] = 0;
+        $_SESSION['power'][$this->fullName] = 0;
+        $_SESSION['message'][$this->fullName] = "Light in " . $this->location . " is off";
     }
 
     public function dim(int $level) : void
@@ -34,7 +40,7 @@ class Light
         if ($level === 0) {
             $this->off();
         } else {
-            $_SESSION['lightLevel'] = 'Light is dimmed to ' . $this->level . '%';
+            $_SESSION['message'][$this->fullName] = 'Light in' . $this->fullName . 'is dimmed to ' . $this->level . '%';
         }
     }
 
