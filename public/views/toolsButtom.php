@@ -1,4 +1,3 @@
-<?php $lights = [1, 1, 0, 0, 0, 0, 0]; ?>
 
 <?php foreach ($_SESSION['power'] as $key => $light) : ?>
     <?php if ($light) : ?>

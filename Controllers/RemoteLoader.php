@@ -35,6 +35,7 @@ class RemoteLoader
     private $aliases;
     private $devicesPlaces;
     private $devices = [];
+    private $deviceNames = [];
 
     public function __construct()
     {
@@ -53,9 +54,8 @@ class RemoteLoader
         foreach ($this->devicesPlaces as $device => $place) {
             foreach ($place as $item) {
                 $name = trim($device . " " . $item);
-                $deviceName = trim(strtolower($device) . str_replace(' ', '', $item));
-                $deviceName = new $this->aliases[$device]($item);
-                $this->devices[] = $deviceName;
+                $this->deviceNames[] = trim(strtolower($device) . str_replace(' ', '', $item));
+                $this->devices[] = new $this->aliases[$device]($item);
 
                 if (empty($_SESSION['power'][$name])) {
                     $_SESSION['power'][$name] = 0;
