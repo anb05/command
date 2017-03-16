@@ -13,7 +13,7 @@ class GarageDoor
     public function __construct(string $location)
     {
         $this->location = $location;
-        $this->fullName = trim("GarageDoor " . $this->location);
+        $this->fullName = trim($this->location . "GarageDoor");
     }
 
     public function up() : void

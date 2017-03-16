@@ -14,7 +14,7 @@ class TV
     public function __construct(string $location)
     {
         $this->location = $location;
-        $this->fullName = trim("TV " . $this->location);
+        $this->fullName = trim($this->location . " TV");
     }
 
     public function on() : void

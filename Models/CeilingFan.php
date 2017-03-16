@@ -19,7 +19,7 @@ class CeilingFan
     public function __construct(string $location)
     {
         $this->location = $location;
-        $this->fullName = trim("CeilingFan " . $this->location);
+        $this->fullName = trim($this->location . " CeilingFan");
         $this->level = self::OFF;
     }
 

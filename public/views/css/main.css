@@ -149,6 +149,8 @@ h3 {
     border:                             solid 1px grey;
     margin:                             5px auto 17px auto;
     padding:                            5px;
+    font-size:                          10px;
+    font-family:                        monospace;
 }
 
 .undo {
@@ -160,7 +162,6 @@ h3 {
 
 #scheme {
     width:                              calc(100% - 10px);
-    height:                             calc(100% - 10px);
     border:                             solid 1px white;
     border-radius:                      10px;
     margin:                             5px auto;

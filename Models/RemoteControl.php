@@ -20,18 +20,18 @@ class RemoteControl
         }
     }
 
-    public function setCommand(int $slot, Command $onCommand, Command $offCommand) : void
+    public function setCommand($slot, Command $onCommand, Command $offCommand) : void
     {
         $this->onCommands[$slot]  = $onCommand;
         $this->offCommands[$slot] = $offCommand;
     }
 
-    public function onButtonWasPushed(int $slot)
+    public function onButtonWasPushed($slot)
     {
         $this->onCommands[$slot]->execute();
     }
 
-    public function offButtonWasPushed(int $slot)
+    public function offButtonWasPushed($slot)
     {
         $this->offCommands[$slot]->execute();
     }

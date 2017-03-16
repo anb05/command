@@ -16,7 +16,7 @@ class Light
     public function __construct(string $location)
     {
         $this->location = $location;
-        $this->fullName = trim("Light " . $this->location);
+        $this->fullName = trim($this->location . " Light");
         $this->level = 0;
     }
 

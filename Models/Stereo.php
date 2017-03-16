@@ -13,7 +13,7 @@ class Stereo
     public function __construct(string $location)
     {
         $this->location = $location;
-        $this->fullName = trim("Stereo " . $this->location);
+        $this->fullName = trim($this->location . " Stereo");
     }
 
     public function on() : void
