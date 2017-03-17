@@ -22,12 +22,15 @@ header {
 
 footer {
     background:                         rgba(255,200,100, 0.5);
-    height:                             100px;
+    /*height:                             100px;*/
     border:                             2px solid brown;
     box-shadow:                         inset 0px 0px 5px brown;
     border-top-left-radius:             15px;
     border-top-right-radius:            15px;
     clear:                              both;
+    text-align:                         center;
+    text-shadow:                        0 0 3px red;
+    font-weight:                        bolder;
 }
 
 main {

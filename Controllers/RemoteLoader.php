@@ -91,9 +91,6 @@ class RemoteLoader
                 }
 
         require_once __DIR__ . "/../public/views/index.html";
-
-        echo "<br> Сообщения в СЕССИИ<br>";
-        var_dump($_SESSION);
     }
 
     private function init()
@@ -113,11 +110,13 @@ class RemoteLoader
 
     private function checkButton($array)
     {
-        if ($array['line'] !== 'undo') {
-            if ((int)$array['col'] === 2) {
-                $this->remoteControl->offButtonWasPushed($array['line']);
-            } elseif ((int)$array['col'] === 1) {
-                $this->remoteControl->onButtonWasPushed($array['line']);
+        if (isset($array['line']) && $array['line'] !== 'undo') {
+            if(isset($array['col'])) {
+                if ((int)$array['col'] === 2 && isset($_SESSION['power'][$array['line']])) {
+                    $this->remoteControl->offButtonWasPushed($array['line']);
+                } elseif ((int)$array['col'] === 1 && isset($_SESSION['power'][$array['line']])) {
+                    $this->remoteControl->onButtonWasPushed($array['line']);
+                }
             }
         }
     }
