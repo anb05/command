@@ -11,10 +11,12 @@ $devicesCommand = [
         'Off',
     ],
 
-    'CeilingFan' => [
-        'High',
-        'Off',
-    ],
+//    'CeilingFan' => [
+//        'High',
+////        'Medium',
+////        'Low',
+//        'Off',
+//    ],
 
     'GarageDoor' => [
         'Up',
@@ -29,7 +31,22 @@ $devicesCommand = [
     'TV' => [
         'On',
         'Off',
-    ]
+    ],
+
+    'CeilingFan High' => [
+        'High',
+        'Off',
+    ],
+
+    'CeilingFan Medium' => [
+        'Medium',
+        'Off',
+    ],
+
+    'CeilingFan Low' => [
+        'Low',
+        'Off',
+    ],
 ];
 
 return $devicesCommand;

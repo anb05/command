@@ -12,51 +12,76 @@ class CeilingFan
     const LOW    = 1;
     const OFF    = 0;
 
+    private $name = "CeilingFan";
     private $location = "";
-    private $fullName = "";
-    private $level = self::OFF;
+    private $speed;
 
     public function __construct(string $location)
     {
         $this->location = $location;
-        $this->fullName = trim($this->location . " CeilingFan");
-        $this->level = self::OFF;
+        if (!isset($_SESSION[$location . " " . 'CeilingFan'])) {
+            $_SESSION[$location . " " . 'CeilingFan'] = self::OFF;
+        }
     }
 
     public function high()
     {
         //turns the ceiling fan on to high speed
-        $this->level = self::HIGH;
-        $_SESSION['power'][$this->fullName] = 1;
-        $_SESSION['message'][$this->fullName] = "Ceiling fan in " . $this->location . " is on high";
+        $this->speed = self::HIGH;
+        $_SESSION['power'][$this->location . " " . $this->name . " High"]     = 1;
+        $_SESSION['power'][$this->location . " " . $this->name . " Medium"]   = 1;
+        $_SESSION['power'][$this->location . " " . $this->name . " Low"]      = 1;
+        $_SESSION['message'][$this->location . " " . $this->name . " High"]   = "Ceiling fan in " . $this->location . " is on high";
+        $_SESSION['message'][$this->location . " " . $this->name . " Medium"] = "";
+        $_SESSION['message'][$this->location . " " . $this->name . " Low"]    = "";
     }
 
     public function medium()
     {
         //turns the ceiling fan on to medium speed
-        $this->level = self::MEDIUM;
-        $_SESSION['power'][$this->fullName] = 1;
-        $_SESSION['message'][$this->fullName] = "Ceiling fan in " . $this->location . " is on medium";
+        $this->speed = self::MEDIUM;
+        $_SESSION['power'][$this->location . " " . $this->name . " High"]     = 0;
+        $_SESSION['power'][$this->location . " " . $this->name . " Medium"]   = 1;
+        $_SESSION['power'][$this->location . " " . $this->name . " Low"]      = 1;
+        $_SESSION['message'][$this->location . " " . $this->name . " High"]   = "";
+        $_SESSION['message'][$this->location . " " . $this->name . " Medium"] = "Ceiling fan in " . $this->location . " is on medium";
+        $_SESSION['message'][$this->location . " " . $this->name . " Low"]    = "";
     }
 
     public function low()
     {
         //turns the ceiling fan on to medium speed
-        $this->level = self::LOW;
-        $_SESSION['power'][$this->fullName] = 1;
-        $_SESSION['message'][$this->fullName] = "Ceiling fan in " . $this->location . " is on low";
+        $this->speed = self::LOW;
+        $_SESSION['power'][$this->location . " " . $this->name . " High"]     = 0;
+        $_SESSION['power'][$this->location . " " . $this->name . " Medium"]   = 0;
+        $_SESSION['power'][$this->location . " " . $this->name . " Low"]      = 1;
+        $_SESSION['message'][$this->location . " " . $this->name . " High"]   = "";
+        $_SESSION['message'][$this->location . " " . $this->name . " Medium"] = "";
+        $_SESSION['message'][$this->location . " " . $this->name . " Low"]    = "Ceiling fan in " . $this->location . " is on low";
     }
 
     public function off()
     {
-        //turns the ceiling fan on to medium speed
-        $this->level = self::OFF;
-        $_SESSION['power'][$this->fullName] = 0;
-        $_SESSION['message'][$this->fullName] = "Ceiling fan in " . $this->location . " is off";
+        $_SESSION['power'][$this->location . " " . $this->name . " High"] = 0;
+        $_SESSION['power'][$this->location . " " . $this->name . " Medium"] = 0;
+        $_SESSION['power'][$this->location . " " . $this->name . " Low"] = 0;
+        switch ($this->speed) {
+            case self::HIGH:
+                $level = " High";
+                break;
+            case self::MEDIUM:
+                $level = " Medium";
+                break;
+            case self::LOW:
+                $level = " Low";
+                break;
+        }
+        $_SESSION['message'][$this->location . " " . $this->name . $level] = "Ceiling fan in " . $this->location . " is off";
+        $this->speed = self::OFF;
     }
 
     public function getSpeed()
     {
-        return $this->level;
+        return $this->speed;
     }
  }

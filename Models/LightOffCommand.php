@@ -19,12 +19,13 @@ class LightOffCommand implements Command
 
     public function execute(): void
     {
-        $this->level = $this->light->getLevel();
+//        $this->level = $this->light->getLevel();
         $this->light->off();
     }
 
     public function undo(): void
     {
-        $this->light->dim($this->level);
+        $this->light->on();
+//        $this->light->dim($this->level);
     }
 }

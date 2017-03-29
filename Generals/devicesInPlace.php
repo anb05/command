@@ -15,8 +15,8 @@ $deviceInPlace = [
         'Living Room',
     ],
 
-    'GarageDoor' => [''
-
+    'GarageDoor' => [
+        'Garage'
     ],
 
     'Stereo' => [

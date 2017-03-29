@@ -11,12 +11,16 @@ class RemoteControl
 {
     private $onCommands  = [];
     private $offCommands = [];
+    private $undoCommand;
 
     public function __construct()
     {
         $noCommand = new NoCommand();
-        for ($counter = 0; $counter < 7; $counter++) {
-            $this->onCommands[] = $this->offCommands[] = $noCommand;
+//        for ($counter = 0; $counter < 7; $counter++) {
+//            $this->onCommands[] = $this->offCommands[] = $noCommand;
+//        }
+        if (!isset($_SESSION['RemoteControl'])) {
+            $this->undoCommand = $noCommand;
         }
     }
 
@@ -29,11 +33,18 @@ class RemoteControl
     public function onButtonWasPushed($slot)
     {
         $this->onCommands[$slot]->execute();
+        $this->undoCommand = $this->onCommands[$slot];
     }
 
     public function offButtonWasPushed($slot)
     {
         $this->offCommands[$slot]->execute();
+        $this->undoCommand = $this->offCommands[$slot];
+    }
+
+    public function undoButtonWasPushed() : void
+    {
+        $this->undoCommand->undo();
     }
 
     public function toString()

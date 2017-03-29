@@ -22,7 +22,7 @@ header {
 
 footer {
     background:                         rgba(255,200,100, 0.5);
-    /*height:                             100px;*/
+    min-height:                         100px;
     border:                             2px solid brown;
     box-shadow:                         inset 0px 0px 5px brown;
     border-top-left-radius:             15px;
@@ -153,7 +153,7 @@ h3 {
     margin:                             5px auto 17px auto;
     padding:                            5px;
     font-size:                          10px;
-    font-family:                        monospace;
+    font-family:                        Arial, sans-serif;
 }
 
 .undo {

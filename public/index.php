@@ -19,6 +19,15 @@ session_start();
 
 require_once __DIR__ . "/../Generals/myHelper.php";
 
-$loader = new \Command\Controllers\RemoteLoader();
-$loader->run();
+if (!empty($_SESSION['remember'])) {
+    $loader = unserialize($_SESSION['remember']);
+    $loader->run();
+} else {
+    $loader = new \Command\Controllers\RemoteLoader();
+    $loader->run();
+}
+$_SESSION['remember'] = serialize($loader);
+//echo "<br>SESSION<br>\n";
+//var_dump($_SESSION);
+
 
