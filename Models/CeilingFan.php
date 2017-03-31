@@ -75,6 +75,8 @@ class CeilingFan
             case self::LOW:
                 $level = " Low";
                 break;
+            default:
+                $level = " LOW";
         }
         $_SESSION['message'][$this->location . " " . $this->name . $level] = "Ceiling fan in " . $this->location . " is off";
         $this->speed = self::OFF;
